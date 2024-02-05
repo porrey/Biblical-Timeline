@@ -1,0 +1,225 @@
+[
+	{
+		"Sequence": 1,
+		"Name": "Adam",
+		"EventLength": 930,
+		"Predecessor": null,
+		"EventStart": 0,
+		"Reference": "Genesis 5:5"
+	},
+	{
+		"Sequence": 2,
+		"Name": "Seth",
+		"EventLength": 912,
+		"Predecessor": "Adam",
+		"EventStart": 130,
+		"Reference": "Genesis 5:6-8"
+	},
+	{
+		"Sequence": 3,
+		"Name": "Enosh",
+		"EventLength": 905,
+		"Predecessor": "Seth",
+		"EventStart": 105,
+		"Reference": "Genesis 5:9-11"
+	},
+	{
+		"Sequence": 4,
+		"Name": "Kenan",
+		"EventLength": 910,
+		"Predecessor": "Enosh",
+		"EventStart": 90,
+		"Reference": "Genesis 5:12-14"
+	},
+	{
+		"Sequence": 5,
+		"Name": "Mahalalel",
+		"EventLength": 895,
+		"Predecessor": "Kenan",
+		"EventStart": 70,
+		"Reference": "Genesis 5:15-17"
+	},
+	{
+		"Sequence": 6,
+		"Name": "Jared",
+		"EventLength": 962,
+		"Predecessor": "Mahalalel",
+		"EventStart": 65,
+		"Reference": "Genesis 5:18-20"
+	},
+	{
+		"Sequence": 7,
+		"Name": "Enoch",
+		"EventLength": 365,
+		"Predecessor": "Jared",
+		"EventStart": 162,
+		"Reference": "Genesis 5:21-24"
+	},
+	{
+		"Sequence": 8,
+		"Name": "Methuselah",
+		"EventLength": 969,
+		"Predecessor": "Enoch",
+		"EventStart": 65,
+		"Reference": "Genesis 5:25-27"
+	},
+	{
+		"Sequence": 9,
+		"Name": "Lamech",
+		"EventLength": 777,
+		"Predecessor": "Methuselah",
+		"EventStart": 187,
+		"Reference": "Genesis 5:28-31"
+	},
+	{
+		"Sequence": 10,
+		"Name": "Noah",
+		"EventLength": 950,
+		"Predecessor": "Lamech",
+		"EventStart": 182,
+		"Reference": "Genesis 5:32,7:11"
+	},
+	{
+		"Sequence": 11,
+		"Name": "Ark",
+		"EventLength": 1,
+		"Predecessor": "Noah",
+		"EventStart": 520,
+		"DisplayYears": false,
+		"EntryType": "TimeMarker",
+		"Reference": "Genesis 5:32",
+		"Style": "Light",
+		"Comments": "This number is a guess based on the fact that God told Noah his children would go on the ark. Noah started having children at the age of 500."
+	},
+	{
+		"Sequence": 12,
+		"Name": "Flood",
+		"EventLength": 1,
+		"Predecessor": "Noah",
+		"EventStart": 600,
+		"DisplayYears": false,
+		"Reference": "Genesis 7:11,8:13",
+		"EntryType": "TimeMarker",
+		"Style": "Light",
+		"Comments": "Noah was on the ark 401 days."
+	},
+	{
+		"Sequence": 13,
+		"Name": "Shem",
+		"EventLength": 600,
+		"Predecessor": "Noah",
+		"EventStart": 500,
+		"Reference": "Genesis 11:10-11"
+	},
+	{
+		"Sequence": 14,
+		"Name": "Arpachshad",
+		"EventLength": 438,
+		"Predecessor": "Shem",
+		"EventStart": 100,
+		"Reference": "Genesis 11:12-13"
+	},
+	{
+		"Sequence": 15,
+		"Name": "Shelah",
+		"EventLength": 433,
+		"Predecessor": "Arpachshad",
+		"EventStart": 35,
+		"Reference": "Genesis 11:14"
+	},
+	{
+		"Sequence": 16,
+		"Name": "Eber",
+		"EventLength": 464,
+		"Predecessor": "Shelah",
+		"EventStart": 30,
+		"Reference": "Genesis 11:16"
+	},
+	{
+		"Sequence": 17,
+		"Name": "Peleg",
+		"EventLength": 239,
+		"Predecessor": "Eber",
+		"EventStart": 34,
+		"Reference": "Genesis 11:18"
+	},
+	{
+		"Sequence": 18,
+		"Name": "Reu",
+		"EventLength": 239,
+		"Predecessor": "Peleg",
+		"EventStart": 30,
+		"Reference": "Genesis 11:20"
+	},
+	{
+		"Sequence": 19,
+		"Name": "Serug",
+		"EventLength": 230,
+		"Predecessor": "Reu",
+		"EventStart": 32,
+		"Reference": "Genesis 11:22"
+	},
+	{
+		"Sequence": 20,
+		"Name": "Nahor",
+		"EventLength": 148,
+		"Predecessor": "Serug",
+		"EventStart": 30,
+		"Reference": "Genesis 11:24"
+	},
+	{
+		"Sequence": 21,
+		"Name": "Terah",
+		"EventLength": 205,
+		"Predecessor": "Nahor",
+		"EventStart": 29,
+		"Reference": "Genesis 11:26,32"
+	},
+	{
+		"Sequence": 22,
+		"Name": "Abraham",
+		"EventLength": 175,
+		"Predecessor": "Terah",
+		"EventStart": 130,
+		"Reference": "Genesis 11:26,32,25:7",
+		"Comment": "Based on Acts 7:4, 130 years is a guess as Genesis 11:32 states Terah had children at age 70. This assumes Abraham left Haran right after his father died."
+	},
+
+	{
+		"Sequence": 23,
+		"Name": "Left Haran",
+		"EventLength": 1,
+		"Predecessor": "Abraham",
+		"EventStart": 75,
+		"Reference": "Genesis 12:4",
+		"DisplayYears": false,
+		"EntryType": "TimeMarker",
+		"Style": "Light"
+	},
+	{
+		"Sequence": 24,
+		"Name": "Ishmael",
+		"EventLength": 137,
+		"Predecessor": "Abraham",
+		"EventStart": 86,
+		"Reference": "Genesis 25:17",
+		"DisplayYears": false,
+		"Style": "Light"
+	},
+	{
+		"Sequence": 25,
+		"Name": "Isaac",
+		"EventLength": 180,
+		"Predecessor": "Abraham",
+		"EventStart": 100,
+		"Reference": "Genesis 35:27"
+	},
+	{
+		"Sequence": 26,
+		"Name": "Jacob",
+		"EventLength": 147,
+		"Predecessor": "Isaac",
+		"EventStart": 40,
+		"Reference": "Genesis 25:20,47:28"
+	}
+]
