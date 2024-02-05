@@ -19,7 +19,7 @@
 		public int EventLength { get; set; }
 		public string Predecessor { get; set; }
 		public int EventStart { get; set; }
-		public bool DisplayYears { get; set; } = true;
+		public bool DisplayEventLength { get; set; } = true;
 		public string Reference { get; set; }
 		public EntryType EntryType { get; set; } = EntryType.Person;
 		public Style Style { get; set; } = Style.Dark;

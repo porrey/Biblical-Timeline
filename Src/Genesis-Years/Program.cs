@@ -186,8 +186,8 @@ namespace Genesis.Years
 				if (eventItem.Person.EntryType == EntryType.TimeMarker)
 				{
 					SizeF size = g.MeasureString(eventItem.Person.Name, theme.MarkerFont);
-					float textLeft = eventItem.Rectangle.Left + 1;
-					float top = (int)((float)eventItem.Rectangle.Top + (((float)eventItem.Rectangle.Height - size.Height) / 2F)) + 1;
+					float textLeft = eventItem.Rectangle.Left + 4;
+					float top = (int)((float)eventItem.Rectangle.Top + (((float)eventItem.Rectangle.Height - size.Height) / 2F)) + 2;
 					g.DrawString(eventItem.Person.Name, theme.MarkerFont, theme.MarkerBrush, new PointF(textLeft, top));
 				}
 				else
@@ -200,7 +200,7 @@ namespace Genesis.Years
 					//
 					// Add the event time span if requested.
 					//
-					if (eventItem.Person.DisplayYears)
+					if (eventItem.Person.DisplayEventLength)
 					{
 						text += $" ({eventItem.Person.EventLength})";
 					}
