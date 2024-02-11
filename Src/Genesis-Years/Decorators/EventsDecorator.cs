@@ -6,9 +6,9 @@
 		{
 			EventDecorator returnValue = null;
 
-			foreach (EventDecorator item in events.Where(t => t.Person.Sequence != eventItem.Person.Sequence))
+			foreach (EventDecorator item in events.Where(t => t.EventItem.Sequence != eventItem.EventItem.Sequence))
 			{
-				if (item.Person.Name == eventItem.Person.Predecessor)
+				if (item.EventItem.Name == eventItem.EventItem.Predecessor)
 				{
 					returnValue = item;
 					break;
@@ -29,7 +29,7 @@
 				returnValue += eventItem.Predecessor.Rectangle.Left;
 			}
 
-			returnValue += (int)(eventItem.Person.EventStart * pixelsPerYear);
+			returnValue += (int)(eventItem.EventItem.EventStart * pixelsPerYear);
 
 			return returnValue;
 		}

@@ -4,16 +4,16 @@ namespace Genesis.Years
 {
 	public class EventDecorator
 	{
-		public EventDecorator(BiblicalEvent person)
+		public EventDecorator(BiblicalEvent eventItem)
 		{
-			this.Person = person;
+			this.EventItem = eventItem;
 		}
 
-		public BiblicalEvent Person { get; protected set; }
+		public BiblicalEvent EventItem { get; protected set; }
 		public EventDecorator Predecessor { get; set; }
 
 		public RectangleF Rectangle { get; set; }
 
-		public override string ToString() => this.Person?.Name;
+		public override string ToString() => this.EventItem?.Name;
 	}
 }

@@ -194,7 +194,6 @@
 		"Reference": "Genesis 11:26,32,25:7",
 		"Comment": "Based on Acts 7:4, 130 years is a guess as Genesis 11:32 states Terah had children at age 70. This assumes Abraham left Haran right after his father died."
 	},
-
 	{
 		"Sequence": 24,
 		"Name": "Left Haran",
@@ -204,10 +203,22 @@
 		"Reference": "Genesis 12:4",
 		"DisplayEventLength": false,
 		"EntryType": "TimeMarker",
-		"Style": "Light"
+		"Style": "Light",
+		"TextAlign": "Left"
 	},
 	{
 		"Sequence": 25,
+		"Name": "Hagar",
+		"EventLength": 1,
+		"Predecessor": "Left Haran",
+		"EventStart": 10,
+		"Reference": "Genesis 16:30",
+		"DisplayEventLength": false,
+		"Style": "Light",
+		"EntryType": "TimeMarker"
+	},
+	{
+		"Sequence": 26,
 		"Name": "Ishmael",
 		"EventLength": 137,
 		"Predecessor": "Abraham",
@@ -217,7 +228,18 @@
 		"Style": "Light"
 	},
 	{
-		"Sequence": 26,
+		"Sequence": 27,
+		"Name": "2nd Promise of a Son",
+		"EventLength": 1,
+		"Predecessor": "Abraham",
+		"EventStart": 99,
+		"Reference": "Genesis 17:1",
+		"DisplayEventLength": false,
+		"Style": "Light",
+		"EntryType": "TimeMarker"
+	},
+	{
+		"Sequence": 28,
 		"Name": "Isaac",
 		"EventLength": 180,
 		"Predecessor": "Abraham",
@@ -225,7 +247,7 @@
 		"Reference": "Genesis 35:27"
 	},
 	{
-		"Sequence": 27,
+		"Sequence": 29,
 		"Name": "Jacob",
 		"EventLength": 147,
 		"Predecessor": "Isaac",

@@ -12,6 +12,12 @@
 		Light
 	}
 
+	public enum TextAlign
+	{
+		Left,
+		Right
+	}
+
 	public class BiblicalEvent
 	{
 		public int Sequence { get; set; }
@@ -24,7 +30,7 @@
 		public EntryType EntryType { get; set; } = EntryType.Person;
 		public Style Style { get; set; } = Style.Dark;
 		public string Comments { get; set; }
-
+		public TextAlign TextAlign { get; set; } = TextAlign.Right;
 		public override string ToString() => this.Name;
 	}
 }

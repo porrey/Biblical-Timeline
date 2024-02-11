@@ -106,14 +106,14 @@ namespace Genesis.Years
 					//
 					// Calculate the position of each object.
 					//
-					foreach (EventDecorator item in decoratedPeople.OrderBy(t => t.Person.Sequence))
+					foreach (EventDecorator item in decoratedPeople.OrderBy(t => t.EventItem.Sequence))
 					{
 						if (item.Predecessor == null)
 						{
 							//
 							// A person without a predecessor is at the left margin.
 							//
-							item.Rectangle = new(margins.Left + 1, startingTop, (int)(pixelsPerYear * item.Person.EventLength), personBarHeight);
+							item.Rectangle = new(margins.Left + 1, startingTop, (int)(pixelsPerYear * item.EventItem.EventLength), personBarHeight);
 						}
 						else
 						{
@@ -121,7 +121,7 @@ namespace Genesis.Years
 							// The left position is dependent on predecessors.
 							//
 							float left = item.GetLeftPosition(pixelsPerYear);
-							item.Rectangle = new(left, startingTop, (int)(pixelsPerYear * item.Person.EventLength), personBarHeight);
+							item.Rectangle = new(left, startingTop, (int)(pixelsPerYear * item.EventItem.EventLength), personBarHeight);
 						}
 
 						startingTop += personBarMargin + personBarHeight;
@@ -130,8 +130,8 @@ namespace Genesis.Years
 					//
 					// Draw the objects.
 					//
-					DrawObjects(g, decoratedPeople.Where(t => t.Person.EntryType == EntryType.TimeMarker), margins, theme);
-					DrawObjects(g, decoratedPeople.Where(t => t.Person.EntryType == EntryType.Person), margins, theme);
+					DrawObjects(g, decoratedPeople.Where(t => t.EventItem.EntryType == EntryType.TimeMarker), margins, theme);
+					DrawObjects(g, decoratedPeople.Where(t => t.EventItem.EntryType == EntryType.Person), margins, theme);
 
 					//
 					// Print the page title in the bottom left.
@@ -162,66 +162,94 @@ namespace Genesis.Years
 			//
 			// Draw the event bars.
 			//
-			foreach (EventDecorator eventItem in eventItems.OrderBy(t => t.Person.Sequence))
+			foreach (EventDecorator eventItem in eventItems.OrderBy(t => t.EventItem.Sequence))
 			{
-				if (eventItem.Person.EntryType == EntryType.TimeMarker)
+				if (eventItem.EventItem.EntryType == EntryType.TimeMarker)
 				{
 					//
 					// Draw a vertical line at the time marker.
 					//
-					g.DrawLine(theme.MarkerPen, eventItem.Rectangle.Left, margins.Top + 60, eventItem.Rectangle.Left, margins.Bottom - 10);
+					g.DrawLine(theme.MarkerLinePen, eventItem.Rectangle.Left, margins.Top + 60, eventItem.Rectangle.Left, margins.Bottom - 10);
 				}
-				else if (eventItem.Person.EntryType == EntryType.Person)
+				else if (eventItem.EventItem.EntryType == EntryType.Person)
 				{
 					//
 					// Draw the bar.
 					//
-					g.FillRectangle(eventItem.Person.Style == Style.Dark ? theme.BarDarkBackgroundBrush : theme.BarLightBackgroundBrush, eventItem.Rectangle);
-					g.DrawRectangle(eventItem.Person.Style == Style.Dark ? theme.BarDarkBorderPen : theme.BarLightBorderPen, eventItem.Rectangle);
+					g.FillRectangle(eventItem.EventItem.Style == Style.Dark ? theme.BarDarkBackgroundBrush : theme.BarLightBackgroundBrush, eventItem.Rectangle);
+					g.DrawRectangle(eventItem.EventItem.Style == Style.Dark ? theme.BarDarkBorderPen : theme.BarLightBorderPen, eventItem.Rectangle);
 				}
 
 				//
 				// Draw the text
 				//
-				if (eventItem.Person.EntryType == EntryType.TimeMarker)
+				float textLeft = 0;
+
+				if (eventItem.EventItem.EntryType == EntryType.TimeMarker)
 				{
-					SizeF size = g.MeasureString(eventItem.Person.Name, theme.MarkerFont);
-					float textLeft = eventItem.Rectangle.Left + 4;
-					float top = (int)((float)eventItem.Rectangle.Top + (((float)eventItem.Rectangle.Height - size.Height) / 2F)) + 2;
-					g.DrawString(eventItem.Person.Name, theme.MarkerFont, theme.MarkerBrush, new PointF(textLeft, top));
+					SizeF size = g.MeasureString(eventItem.EventItem.Name, theme.MarkerFont);
+
+					if (eventItem.EventItem.TextAlign == TextAlign.Right)
+					{
+						textLeft = eventItem.Rectangle.Left + 1;
+					}
+					else
+					{
+						textLeft = eventItem.Rectangle.Left - 1 - size.Width;
+					}
+
+					float top = eventItem.Rectangle.Top + 1;
+					g.DrawString(eventItem.EventItem.Name, theme.MarkerFont, theme.MarkerTextBrush, new PointF(textLeft, top));
 				}
 				else
 				{
 					//
 					// Display at least the name.
 					//
-					string text = eventItem.Person.Name;
+					string text = eventItem.EventItem.Name;
 
 					//
 					// Add the event time span if requested.
 					//
-					if (eventItem.Person.DisplayEventLength)
+					if (eventItem.EventItem.DisplayEventLength)
 					{
-						text += $" ({eventItem.Person.EventLength})";
+						text += $" ({eventItem.EventItem.EventLength})";
 					}
 
 					//
 					// Draw the name.
 					//
 					SizeF size1 = g.MeasureString(text, theme.NameFont);
-					float textLeft1 = eventItem.Rectangle.Left + 1;
+					textLeft = eventItem.Rectangle.Left + 1;
 					float top1 = eventItem.Rectangle.Top + 1;
-					Brush brush1 = eventItem.Person.Style == Style.Dark ? theme.BarDarkTextBrush : theme.BarLightTextBrush;
-					g.DrawString(text, theme.NameFont, brush1, new PointF(textLeft1, top1));
-
-					//
-					// Draw the scripture reference.
-					//
-					SizeF size2 = g.MeasureString(eventItem.Person.Reference, theme.ReferenceFont);
-					float textLeft2 = eventItem.Rectangle.Left + 1;
-					float top2 = eventItem.Rectangle.Bottom - size2.Height + 2;
-					g.DrawString(eventItem.Person.Reference, theme.ReferenceFont, theme.ReferenceBrush, new PointF(textLeft2, top2));
+					Brush brush1 = eventItem.EventItem.Style == Style.Dark ? theme.BarDarkTextBrush : theme.BarLightTextBrush;
+					g.DrawString(text, theme.NameFont, brush1, new PointF(textLeft, top1));
 				}
+
+				//
+				// Draw the scripture reference.
+				//
+				SizeF refTextSize = g.MeasureString(eventItem.EventItem.Reference, theme.ReferenceFont);
+				float refTextLeft = 0;
+
+				if (eventItem.EventItem.EntryType == EntryType.TimeMarker)
+				{
+					if (eventItem.EventItem.TextAlign == TextAlign.Right)
+					{
+						refTextLeft = eventItem.Rectangle.Left + 1;
+					}
+					else
+					{
+						refTextLeft = textLeft;
+					}
+				}
+				else
+				{
+					refTextLeft = eventItem.Rectangle.Left + 1;
+				}
+
+				float refTextTop = eventItem.Rectangle.Bottom - refTextSize.Height + 2;
+				g.DrawString(eventItem.EventItem.Reference, theme.ReferenceFont, theme.ReferenceBrush, new PointF(refTextLeft, refTextTop));
 			}
 		}
 	}
