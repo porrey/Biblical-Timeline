@@ -9,15 +9,16 @@ namespace Genesis.Years.Models
 	{
 		public readonly Font TitleFont = new("Cambria", 32F, FontStyle.Regular, GraphicsUnit.Point);
 		public readonly Font YearsFont = new("Calibri Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
-		public readonly Font NameFont = new("Calibri", 7F, FontStyle.Bold, GraphicsUnit.Point);
-		public readonly Font MarkerFont = new("Calibri", 7F, FontStyle.Bold, GraphicsUnit.Point);
-		public readonly Font ReferenceFont = new("Calibri Light", 5.5F, FontStyle.Italic, GraphicsUnit.Point);
+		public readonly Font NameFont = new("Calibri", 6F, FontStyle.Bold, GraphicsUnit.Point);
+		public readonly Font LengthFont = new("Calibri", 4F, FontStyle.Regular, GraphicsUnit.Point);
+		public readonly Font MarkerFont = new("Calibri", 6F, FontStyle.Bold, GraphicsUnit.Point);
+		public readonly Font ReferenceFont = new("Calibri Light", 3.5F, FontStyle.Italic, GraphicsUnit.Point);
 
 		public readonly Brush PageBackgroundBrush = Brushes.White;
 		public readonly Brush TitleBrush = Brushes.DarkOliveGreen;
 		public readonly Brush BorderBrush = Brushes.DarkOliveGreen;
 		public readonly Brush YearsBrush = Brushes.DarkOliveGreen;
-		public readonly Brush VerticalLineBrush = Brushes.DarkGray;
+		public readonly Brush VerticalLineBrush = Brushes.LightGray;
 		public readonly Brush MarkerLineBrush = Brushes.LightBlue;
 		public readonly Brush MarkerTextBrush = Brushes.DarkOliveGreen;
 		public readonly Brush ReferenceBrush = Brushes.Black;
@@ -39,9 +40,6 @@ namespace Genesis.Years.Models
 			DashPattern = [10, 10]
 		};
 
-		public Pen MarkerLinePen => new(this.MarkerLineBrush, 1.95F)
-		{
-			DashPattern = [3, 3]
-		};
+		public Pen MarkerLinePen => new(this.MarkerLineBrush, 2.95F);
 	}
 }

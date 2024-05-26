@@ -204,7 +204,7 @@
 		"DisplayEventLength": false,
 		"EntryType": "TimeMarker",
 		"Style": "Light",
-		"TextAlign": "Left"
+		"TextAlign": "Right"
 	},
 	{
 		"Sequence": 25,
@@ -219,16 +219,6 @@
 	},
 	{
 		"Sequence": 26,
-		"Name": "Ishmael",
-		"EventLength": 137,
-		"Predecessor": "Abraham",
-		"EventStart": 86,
-		"Reference": "Genesis 25:17",
-		"DisplayEventLength": false,
-		"Style": "Light"
-	},
-	{
-		"Sequence": 27,
 		"Name": "2nd Promise of a Son",
 		"EventLength": 1,
 		"Predecessor": "Abraham",
@@ -237,6 +227,16 @@
 		"DisplayEventLength": false,
 		"Style": "Light",
 		"EntryType": "TimeMarker"
+	},
+	{
+		"Sequence": 27,
+		"Name": "Ishmael",
+		"EventLength": 137,
+		"Predecessor": "Abraham",
+		"EventStart": 86,
+		"Reference": "Genesis 25:17",
+		"DisplayEventLength": false,
+		"Style": "Light"
 	},
 	{
 		"Sequence": 28,
@@ -253,5 +253,80 @@
 		"Predecessor": "Isaac",
 		"EventStart": 40,
 		"Reference": "Genesis 25:20,47:28"
+	},
+	{
+		"Sequence": 30,
+		"Name": "Jacob in Egypt",
+		"EventLength": 1,
+		"Predecessor": "Jacob",
+		"EventStart": 130,
+		"Reference": "Genesis 47:9 (age 130)",
+		"DisplayEventLength": false,
+		"Style": "Light",
+		"EntryType": "TimeMarker"
+	},
+	{
+		"Sequence": 31,
+		"Name": "Joseph",
+		"EventLength": 110,
+		"Predecessor": "Jacob in Egypt",
+		"EventStart": -39,
+		"Reference": "Genesis 50:22"
+	},
+	{
+		"Sequence": 32,
+		"Name": "Joseph in Pit",
+		"EventLength": 1,
+		"Predecessor": "Joseph",
+		"EventStart": 17,
+		"Reference": "Genesis 47:9 (age 17)",
+		"DisplayEventLength": false,
+		"Style": "Light",
+		"EntryType": "TimeMarker"
+	},
+	{
+		"Sequence": 33,
+		"Name": "Joseph before Pharoah",
+		"EventLength": 1,
+		"Predecessor": "Joseph",
+		"EventStart": 30,
+		"Reference": "Genesis 47:9 (age 30)",
+		"DisplayEventLength": false,
+		"Style": "Light",
+		"EntryType": "TimeMarker"
+	},
+	{
+		"Sequence": 35,
+		"Name": "Abundance/Famine",
+		"EventLength": 14,
+		"Predecessor": "Joseph before Pharoah",
+		"EventStart": 1,
+		"Reference": "Genesis 41:50",
+		"Style": "Light"
+	},
+	{
+		"Sequence": 36,
+		"Name": "Manasseh",
+		"EventLength": -1,
+		"Predecessor": "Joseph",
+		"EventStart": 36,
+		"Reference": "Genesis 41:50"
+	},
+	{
+		"Sequence": 37,
+		"Name": "Ephraim",
+		"EventLength": -1,
+		"Predecessor": "Joseph",
+		"EventStart": 36,
+		"Reference": "Genesis 41:50"
+	},
+	{
+		"Sequence": 38,
+		"Name": "Israel in Egypt",
+		"EventLength": 430,
+		"Predecessor": "Jacob in Egypt",
+		"EventStart": 0,
+		"Reference": "Exodus 12:40",
+		"Style": "Light"
 	}
 ]
