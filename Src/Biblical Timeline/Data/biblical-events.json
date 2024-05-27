@@ -1162,9 +1162,33 @@
 		"Name": "The Birth of Jesus",
 		"EventLength": 1,
 		"Predecessor": "69 Weeks",
-		"EventStart": 483,
+		"EventStart": 450,
 		"DisplayEventLength": false,
 		"Reference": "Daniel 9:25-27",
+		"EntryType": "TimeMarker",
+		"Comments": "Jesus was born 33 years prior to his death."
+	},
+	{
+		"ResetTop": false,
+		"Sequence": 93,
+		"Name": "Start of Jesus's Ministry",
+		"EventLength": 1,
+		"Predecessor": "The Birth of Jesus",
+		"EventStart": 30,
+		"DisplayEventLength": false,
+		"Reference": "Luke 3:23",
+		"EntryType": "TimeMarker",
+		"Comments": null
+	},
+	{
+		"ResetTop": false,
+		"Sequence": 94,
+		"Name": "Death on the Cross",
+		"EventLength": 1,
+		"Predecessor": "Start of Jesus's Ministry",
+		"EventStart": 3,
+		"DisplayEventLength": false,
+		"Reference": "Luke 3:23",
 		"EntryType": "TimeMarker",
 		"Comments": null
 	}
