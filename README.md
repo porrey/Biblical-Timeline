@@ -1,4 +1,4 @@
-# Genesis-Years
-Creates a timeline image from the data in Genesis.
+# Biblical Timeline
+Creates a timeline image from scripture references by lining timeline events.
 
-![](https://github.com/porrey/Genesis-Years/blob/59c8760eaa5185ea4e5dbd6919e66f5e0a6c3d46/Images/Genesis-Years.png)
+![](https://github.com/porrey/Biblical-Timeline/blob/d15b8f9a0d58b59b145b9726b539ac440995730a/Images/Biblical%20Timeline.png)
