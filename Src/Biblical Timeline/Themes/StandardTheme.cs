@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 
-namespace Genesis.Years.Models
+namespace Biblical.Timeline
 {
 	/// <summary>
 	/// Fonts and Theme.
 	/// </summary>
-	public class Theme
+	public class StandardTheme
 	{
 		public readonly Font TitleFont = new("Cambria", 32F, FontStyle.Regular, GraphicsUnit.Point);
 		public readonly Font YearsFont = new("Calibri Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
@@ -41,5 +42,11 @@ namespace Genesis.Years.Models
 		};
 
 		public Pen MarkerLinePen => new(this.MarkerLineBrush, 2.95F);
+
+		public Pen JumpLinePen => new(this.MarkerLineBrush, 4.5F)
+		{
+			StartCap = LineCap.ArrowAnchor,
+			EndCap = LineCap.RoundAnchor
+		};
 	}
 }

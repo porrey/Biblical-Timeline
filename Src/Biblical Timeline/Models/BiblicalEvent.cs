@@ -1,9 +1,10 @@
-﻿namespace Genesis.Years
+﻿namespace Biblical.Timeline
 {
 	public enum EntryType
 	{
 		Person,
-		TimeMarker
+		TimeMarker,
+		TimeSpan
 	}
 
 	public enum Style
@@ -20,6 +21,7 @@
 
 	public class BiblicalEvent
 	{
+		public bool ResetTop { get; set; }
 		public int Sequence { get; set; }
 		public string Name { get; set; }
 		public int EventLength { get; set; }
@@ -28,7 +30,6 @@
 		public bool DisplayEventLength { get; set; } = true;
 		public string Reference { get; set; }
 		public EntryType EntryType { get; set; } = EntryType.Person;
-		public Style Style { get; set; } = Style.Dark;
 		public string Comments { get; set; }
 		public TextAlign TextAlign { get; set; } = TextAlign.Right;
 		public override string ToString() => this.Name;
