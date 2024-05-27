@@ -28,6 +28,7 @@ namespace Biblical.Timeline
 					//
 					// A person without a predecessor is at the left margin.
 					//
+					item.BiblicalEvent.StartYear = 0;
 					item.Rectangle = new(pageDefinition.DrawableArea.Left + 1, currentTopPosition, eventLength, timelineParameters.PersonBarHeight);
 				}
 				else
@@ -37,6 +38,7 @@ namespace Biblical.Timeline
 					//
 					float left = item.GetLeftPosition(timelineParameters.PixelsPerYear);
 					item.Rectangle = new(left, currentTopPosition, eventLength, timelineParameters.PersonBarHeight);
+					item.BiblicalEvent.StartYear = (int)(item.Predecessor.BiblicalEvent.StartYear + item.BiblicalEvent.EventStart);
 				}
 
 				currentTopPosition += timelineParameters.BarMargin + timelineParameters.PersonBarHeight;

@@ -1,4 +1,6 @@
-﻿namespace Biblical.Timeline
+﻿using Newtonsoft.Json;
+
+namespace Biblical.Timeline
 {
 	public enum EntryType
 	{
@@ -35,5 +37,8 @@
 		public string Comments { get; set; }
 		public TextAlign TextAlign { get; set; } = TextAlign.Right;
 		public override string ToString() => this.Name;
+
+		[JsonIgnore]
+		public int StartYear { get; set; }
 	}
 }

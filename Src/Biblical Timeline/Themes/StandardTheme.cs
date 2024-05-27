@@ -14,6 +14,7 @@ namespace Biblical.Timeline
 		public readonly Font LengthFont = new("Calibri", 4F, FontStyle.Regular, GraphicsUnit.Point);
 		public readonly Font MarkerFont = new("Calibri", 6F, FontStyle.Bold, GraphicsUnit.Point);
 		public readonly Font ReferenceFont = new("Calibri Light", 3.5F, FontStyle.Italic, GraphicsUnit.Point);
+		public readonly Font StartYearFont = new("Calibri Light", 3.5F, FontStyle.Italic, GraphicsUnit.Point);
 
 		public readonly Brush PageBackgroundBrush = Brushes.White;
 		public readonly Brush TitleBrush = Brushes.DarkOliveGreen;
@@ -23,6 +24,7 @@ namespace Biblical.Timeline
 		public readonly Brush MarkerLineBrush = Brushes.LightBlue;
 		public readonly Brush MarkerTextBrush = Brushes.DarkOliveGreen;
 		public readonly Brush ReferenceBrush = Brushes.Black;
+		public readonly Brush YearBrush = Brushes.DarkOliveGreen;
 		public readonly Brush JumpLineBrush = new SolidBrush(Color.FromArgb(50, Color.Red));
 
 		public readonly Pen BarDarkBorderPen = Pens.Black;
