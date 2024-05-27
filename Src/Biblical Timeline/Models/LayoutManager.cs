@@ -21,7 +21,7 @@ namespace Biblical.Timeline
 				//
 				// Get the item length in pixels.
 				//
-				int eventLength = await item.MeasureAsync(pageDefinition.Graphics);
+				float eventLength = await item.MeasureAsync(pageDefinition.Graphics);
 
 				if (item.Predecessor == null)
 				{

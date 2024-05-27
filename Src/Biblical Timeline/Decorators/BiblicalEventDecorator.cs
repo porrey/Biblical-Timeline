@@ -43,6 +43,12 @@
 				case EntryType.TimeSpan:
 					returnValue = new TimeSpanImageObject(biblicalEvent, pageDefinition, parameters);
 					break;
+				case EntryType.IsraelKing:
+					returnValue = new IsraelKingImageObject(biblicalEvent, pageDefinition, parameters);
+					break;
+				case EntryType.JudahKing:
+					returnValue = new JudahKingImageObject(biblicalEvent, pageDefinition, parameters);
+					break;
 			}
 
 			return returnValue;

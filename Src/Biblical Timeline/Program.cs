@@ -48,6 +48,10 @@ namespace Biblical.Timeline
 				foreach (ImageObjectTemplate item in imageObjects)
 				{
 					item.Predecessor = imageObjects.GetPredecessor(item);
+
+					if (item.BiblicalEvent.Sequence > 1 && item.Predecessor == null)
+					{
+					}
 				}
 
 				//

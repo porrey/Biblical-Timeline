@@ -38,9 +38,9 @@ namespace Biblical.Timeline
 			return Task.CompletedTask;
 		}
 
-		protected override Task<int> OnMeasureAsync(Graphics g)
+		protected override Task<float> OnMeasureAsync(Graphics g)
 		{
-			return Task.FromResult((int)(this.TimelineParameters.PixelsPerYear * this.BiblicalEvent.EventLength));
+			return Task.FromResult(this.TimelineParameters.PixelsPerYear * this.BiblicalEvent.EventLength);
 		}
 	}
 }

@@ -4,7 +4,9 @@
 	{
 		Person,
 		TimeMarker,
-		TimeSpan
+		TimeSpan,
+		JudahKing,
+		IsraelKing
 	}
 
 	public enum Style
@@ -24,9 +26,9 @@
 		public bool ResetTop { get; set; }
 		public int Sequence { get; set; }
 		public string Name { get; set; }
-		public int EventLength { get; set; }
+		public float EventLength { get; set; }
 		public string Predecessor { get; set; }
-		public int EventStart { get; set; }
+		public float EventStart { get; set; }
 		public bool DisplayEventLength { get; set; } = true;
 		public string Reference { get; set; }
 		public EntryType EntryType { get; set; } = EntryType.Person;

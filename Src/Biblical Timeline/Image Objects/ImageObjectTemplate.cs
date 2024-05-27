@@ -20,14 +20,14 @@ namespace Biblical.Timeline
 			throw new NotImplementedException();
 		}
 
-		public virtual Task<int> MeasureAsync(Graphics g)
+		public virtual Task<float> MeasureAsync(Graphics g)
 		{
 			return this.OnMeasureAsync(g);
 		}
 
-		protected virtual Task<int> OnMeasureAsync(Graphics g)
+		protected virtual Task<float> OnMeasureAsync(Graphics g)
 		{
-			int returnValue = (int)(this.TimelineParameters.PixelsPerYear * this.BiblicalEvent.EventLength);
+			float returnValue = this.TimelineParameters.PixelsPerYear * this.BiblicalEvent.EventLength;
 
 			//
 			// Auto size the box if the event length is unknown (-1).

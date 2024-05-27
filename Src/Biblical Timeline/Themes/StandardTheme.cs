@@ -8,9 +8,9 @@ namespace Biblical.Timeline
 	/// </summary>
 	public class StandardTheme
 	{
-		public readonly Font TitleFont = new("Cambria", 32F, FontStyle.Regular, GraphicsUnit.Point);
+		public readonly Font TitleFont = new("Cambria", 30F, FontStyle.Regular, GraphicsUnit.Point);
 		public readonly Font YearsFont = new("Calibri Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
-		public readonly Font NameFont = new("Calibri", 6F, FontStyle.Bold, GraphicsUnit.Point);
+		public readonly Font NameFont = new("Calibri", 5F, FontStyle.Bold, GraphicsUnit.Point);
 		public readonly Font LengthFont = new("Calibri", 4F, FontStyle.Regular, GraphicsUnit.Point);
 		public readonly Font MarkerFont = new("Calibri", 6F, FontStyle.Bold, GraphicsUnit.Point);
 		public readonly Font ReferenceFont = new("Calibri Light", 3.5F, FontStyle.Italic, GraphicsUnit.Point);
@@ -23,6 +23,7 @@ namespace Biblical.Timeline
 		public readonly Brush MarkerLineBrush = Brushes.LightBlue;
 		public readonly Brush MarkerTextBrush = Brushes.DarkOliveGreen;
 		public readonly Brush ReferenceBrush = Brushes.Black;
+		public readonly Brush JumpLineBrush = new SolidBrush(Color.FromArgb(50, Color.Red));
 
 		public readonly Pen BarDarkBorderPen = Pens.Black;
 		public readonly Brush BarDarkTextBrush = Brushes.Black;
@@ -30,6 +31,14 @@ namespace Biblical.Timeline
 		public readonly Pen BarLightBorderPen = Pens.DarkOliveGreen;
 		public readonly Brush BarLightTextBrush = Brushes.Black;
 		public readonly Brush BarLightBackgroundBrush = Brushes.LightYellow;
+
+		public readonly Pen BarJudahKingBorderPen = Pens.MediumPurple;
+		public readonly Brush BarJudahKingTextBrush = Brushes.Black;
+		public readonly Brush BarJudahKingBackgroundBrush = Brushes.Lavender;
+
+		public readonly Pen BarIsraelKingBorderPen = Pens.Purple;
+		public readonly Brush BarIsraelKingTextBrush = Brushes.Black;
+		public readonly Brush BarIsraelKingBackgroundBrush = Brushes.LavenderBlush;
 
 		//
 		// Pens
@@ -43,10 +52,11 @@ namespace Biblical.Timeline
 
 		public Pen MarkerLinePen => new(this.MarkerLineBrush, 2.95F);
 
-		public Pen JumpLinePen => new(this.MarkerLineBrush, 4.5F)
+		public Pen JumpLinePen => new(this.JumpLineBrush, 2.1F)
 		{
 			StartCap = LineCap.ArrowAnchor,
-			EndCap = LineCap.RoundAnchor
+			EndCap = LineCap.RoundAnchor,
+			DashPattern = [3, 3]
 		};
 	}
 }

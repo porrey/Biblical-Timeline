@@ -29,7 +29,7 @@
 				returnValue += imageObject.Predecessor.Rectangle.Left;
 			}
 
-			returnValue += (int)(imageObject.BiblicalEvent.EventStart * pixelsPerYear);
+			returnValue += imageObject.BiblicalEvent.EventStart * pixelsPerYear;
 
 			return returnValue;
 		}
