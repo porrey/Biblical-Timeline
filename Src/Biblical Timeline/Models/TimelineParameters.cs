@@ -9,7 +9,7 @@ namespace Biblical.Timeline
 			this.YearDivisions= yearDivisions;
 			this.TotalYears= totalYears;
 			this.BarMargin = barMargin;
-			this.TopPosition = drawableArea.Top + 1 + barMargin + 50;
+			this.TopPosition = drawableArea.Top + barMargin + 100;
 			this.PersonBarHeight = ((drawableArea.Bottom - this.TopPosition) / maximumVerticalItemCount) - barMargin;
 			this.PixelsPerYear = (float)drawableArea.Width / (float)totalYears;
 		}

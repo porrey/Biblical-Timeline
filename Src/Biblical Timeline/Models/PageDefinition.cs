@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
+using Biblical.Timeline.Themes;
 
 namespace Biblical.Timeline
 {
 	internal class PageDefinition : DisposableObject
 	{
-		public PageDefinition(string title, float pageWidth, float pageHeight, float resolution, float margin, StandardTheme theme, LayoutManager layoutManager)
+		public PageDefinition(string title, float pageWidth, float pageHeight, float resolution, float margin, ITheme theme, LayoutManager layoutManager)
 		{
 			this.Title = title;
 			this.Width = pageWidth;
@@ -27,7 +28,7 @@ namespace Biblical.Timeline
 		public float Height { get; }
 		public float Resolution { get; }
 		public float Margin { get; }
-		public StandardTheme Theme { get; }
+		public ITheme Theme { get; }
 		public LayoutManager LayoutManager { get; }
 
 		public RectangleF Page { get; }
@@ -52,7 +53,7 @@ namespace Biblical.Timeline
 			//
 			// Fill the page background with white.
 			//
-			this.Graphics.FillRectangle(this.Theme.PageBackgroundBrush, this.Page);
+			this.Graphics.FillRectangle(this.Theme.Styles[StyleName.Background].Brush, this.Page);
 
 			//
 			// Draw the year marker lines.
@@ -62,7 +63,7 @@ namespace Biblical.Timeline
 				//
 				// Get the size of the text.
 				//
-				SizeF size = this.Graphics.MeasureString(i.ToString(), this.Theme.YearsFont);
+				SizeF size = this.Graphics.MeasureString(i.ToString(), this.Theme.Styles[StyleName.SubTitle].Font);
 
 				//
 				// Calculate the left position.
@@ -72,27 +73,27 @@ namespace Biblical.Timeline
 				//
 				// Draw the vertical line.
 				//
-				this.Graphics.DrawLine(this.Theme.VerticalLinePen, new PointF(left, (int)(this.Margin + size.Height + 1)), new PointF(left, this.DrawableArea.Bottom));
+				this.Graphics.DrawLine(this.Theme.Styles[StyleName.GridLines].Pen, new PointF(left, (int)(this.Margin + size.Height + 1)), new PointF(left, this.DrawableArea.Bottom));
 
 				//
 				// Draw the year text.
 				//
 				int textLeft = (int)(left - (size.Width / 2F));
-				this.Graphics.DrawString(i.ToString(), this.Theme.YearsFont, this.Theme.YearsBrush, new PointF(textLeft, this.Margin));
+				this.Graphics.DrawString(i.ToString(), this.Theme.Styles[StyleName.SubTitle].Font, this.Theme.Styles[StyleName.SubTitle].Brush, new PointF(textLeft, this.Margin));
 			}
 
 			//
 			// Print the page title in the bottom left.
 			//
-			SizeF titleSize = this.Graphics.MeasureString(this.Title, this.Theme.TitleFont);
+			SizeF titleSize = this.Graphics.MeasureString(this.Title, this.Theme.Styles[StyleName.Title].Font);
 			float titleLeft = this.Margin + 50;
 			float titleTop = this.DrawableArea.Bottom - titleSize.Height - 50;
-			this.Graphics.DrawString(this.Title, this.Theme.TitleFont, this.Theme.TitleBrush, new PointF(titleLeft, titleTop));
+			this.Graphics.DrawString(this.Title, this.Theme.Styles[StyleName.Title].Font, this.Theme.Styles[StyleName.Title].Brush, new PointF(titleLeft, titleTop));
 
 			//
 			// Draw a border at the margins.
 			//
-			this.Graphics.DrawRectangle(this.Theme.BorderPen, this.DrawableArea);
+			this.Graphics.DrawRectangle(this.Theme.Styles[StyleName.GridBorder].Pen, this.DrawableArea);
 
 			//
 			// Draw the objects.

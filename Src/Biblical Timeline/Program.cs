@@ -2,7 +2,6 @@
 using System.Drawing.Imaging;
 using System.Reflection;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Biblical.Timeline
 {
@@ -26,7 +25,7 @@ namespace Biblical.Timeline
 			//
 			// Define page parameters.
 			//
-			using (PageDefinition pageDefinition = new(title, 22F, 11F, 300F, .45F * 300F, new StandardTheme(), new LayoutManager()))
+			using (PageDefinition pageDefinition = new(title, 44F, 34F, 300F, .45F * 300F, new DynamicTheme(), new()))
 			{
 				//
 				// Define timeline parameters. Each line division is 100 years. The total

@@ -1157,7 +1157,7 @@
 		"Comments": null
 	},
 	{
-		"ResetTop": false,
+		"ResetTop": true,
 		"Sequence": 92,
 		"Name": "The Birth of Jesus",
 		"EventLength": 1,
