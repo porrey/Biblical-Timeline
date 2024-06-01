@@ -1,12 +1,11 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using Biblical.Timeline.Themes;
 
-namespace Biblical.Timeline
+namespace Biblical.Timeline.Themes
 {
-	public class DynamicTheme : ITheme
+	public class DefaultTheme : ITheme
 	{
-		public DynamicTheme()
+		public DefaultTheme()
 		{
 			this.DefaultFont = new("Cambria", 12.5F, FontStyle.Regular, GraphicsUnit.Point);
 

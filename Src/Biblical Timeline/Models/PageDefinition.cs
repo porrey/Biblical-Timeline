@@ -4,7 +4,7 @@ using Biblical.Timeline.Themes;
 
 namespace Biblical.Timeline
 {
-	internal class PageDefinition : DisposableObject
+	public class PageDefinition : DisposableObject
 	{
 		public PageDefinition(string title, float pageWidth, float pageHeight, float resolution, float margin, ITheme theme, LayoutManager layoutManager)
 		{
@@ -30,6 +30,7 @@ namespace Biblical.Timeline
 		public float Margin { get; }
 		public ITheme Theme { get; }
 		public LayoutManager LayoutManager { get; }
+		public IEnumerable<GridLine> GridLines { get; set; }
 
 		public RectangleF Page { get; }
 		public RectangleF DrawableArea { get; }
@@ -43,7 +44,7 @@ namespace Biblical.Timeline
 			return Task.CompletedTask;
 		}
 
-		public async Task DrawAsync(TimelineParameters timelineParameters, IEnumerable<ImageObjectTemplate> imageObjects)
+		public async Task BuildAsync(TimelineParameters timelineParameters, IEnumerable<ImageObjectTemplate> imageObjects)
 		{
 			//
 			// Compute the layout.
@@ -51,43 +52,29 @@ namespace Biblical.Timeline
 			await this.LayoutManager.ComputeLayoutAsync(imageObjects, timelineParameters, this);
 
 			//
+			// Create the year marker lines.
+			//
+			this.GridLines = await timelineParameters.CreateGridLinesAsync(this);
+		}
+
+		public async Task DrawAsync(TimelineParameters timelineParameters, IEnumerable<ImageObjectTemplate> imageObjects)
+		{
+			//
 			// Fill the page background with white.
 			//
 			this.Graphics.FillRectangle(this.Theme.Styles[StyleName.Background].Brush, this.Page);
 
 			//
-			// Draw the year marker lines.
+			// Draw the grid lines.
 			//
-			for (int i = timelineParameters.YearDivisions; i < timelineParameters.TotalYears; i += timelineParameters.YearDivisions)
-			{
-				//
-				// Get the size of the text.
-				//
-				SizeF size = this.Graphics.MeasureString(i.ToString(), this.Theme.Styles[StyleName.SubTitle].Font);
-
-				//
-				// Calculate the left position.
-				//
-				float left = this.Margin + (int)((float)i / (float)timelineParameters.TotalYears * this.DrawableArea.Width);
-
-				//
-				// Draw the vertical line.
-				//
-				this.Graphics.DrawLine(this.Theme.Styles[StyleName.GridLines].Pen, new PointF(left, (int)(this.Margin + size.Height + 1)), new PointF(left, this.DrawableArea.Bottom));
-
-				//
-				// Draw the year text.
-				//
-				int textLeft = (int)(left - (size.Width / 2F));
-				this.Graphics.DrawString(i.ToString(), this.Theme.Styles[StyleName.SubTitle].Font, this.Theme.Styles[StyleName.SubTitle].Brush, new PointF(textLeft, this.Margin));
-			}
+			await this.GridLines.DrawGridLinesAsync(this.Graphics);
 
 			//
 			// Print the page title in the bottom left.
 			//
 			SizeF titleSize = this.Graphics.MeasureString(this.Title, this.Theme.Styles[StyleName.Title].Font);
 			float titleLeft = this.Margin + 50;
-			float titleTop = this.DrawableArea.Bottom - titleSize.Height - 50;
+			float titleTop = this.DrawableArea.Bottom - titleSize.Height - 150;
 			this.Graphics.DrawString(this.Title, this.Theme.Styles[StyleName.Title].Font, this.Theme.Styles[StyleName.Title].Brush, new PointF(titleLeft, titleTop));
 
 			//
@@ -98,9 +85,9 @@ namespace Biblical.Timeline
 			//
 			// Draw the objects.
 			//
-			foreach (ImageObjectTemplate i in imageObjects)
+			foreach (ImageObjectTemplate imageObject in imageObjects)
 			{
-				await i.DrawAsync(this.Graphics);
+				await imageObject.DrawAsync(this.Graphics);
 			}
 		}
 

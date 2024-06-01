@@ -36,6 +36,7 @@ namespace Biblical.Timeline
 		public EntryType EntryType { get; set; } = EntryType.Person;
 		public string Comments { get; set; }
 		public TextAlign TextAlign { get; set; } = TextAlign.Right;
+		public bool AdEvent { get; set; }
 		public override string ToString() => this.Name;
 
 		[JsonIgnore]

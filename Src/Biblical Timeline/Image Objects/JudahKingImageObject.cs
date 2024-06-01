@@ -3,7 +3,7 @@ using Biblical.Timeline.Themes;
 
 namespace Biblical.Timeline
 {
-	internal class JudahKingImageObject(BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters) : ImageObjectTemplate(biblicalEvent, pageDefinition, parameters)
+	public class JudahKingImageObject(BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters) : ImageObjectTemplate(biblicalEvent, pageDefinition, parameters)
 	{
 		protected override Brush OnGetBrush(StyleName styleName)
 		{

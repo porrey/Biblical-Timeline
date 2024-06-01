@@ -1,8 +1,6 @@
-﻿using System.Drawing;
-
-namespace Biblical.Timeline
+﻿namespace Biblical.Timeline
 {
-	internal class LayoutManager
+	public class LayoutManager
 	{
 		public async Task ComputeLayoutAsync(IEnumerable<ImageObjectTemplate> imageObjects, TimelineParameters timelineParameters, PageDefinition pageDefinition)
 		{

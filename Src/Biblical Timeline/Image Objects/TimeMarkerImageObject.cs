@@ -3,7 +3,7 @@ using Biblical.Timeline.Themes;
 
 namespace Biblical.Timeline
 {
-	internal class TimeMarkerImageObject(BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters) : ImageObjectTemplate(biblicalEvent, pageDefinition, parameters)
+	public class TimeMarkerImageObject(BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters) : ImageObjectTemplate(biblicalEvent, pageDefinition, parameters)
 	{
 		protected override Task OnDraw(Graphics g)
 		{

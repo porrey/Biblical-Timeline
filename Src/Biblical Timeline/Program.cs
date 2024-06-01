@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Reflection;
+using Biblical.Timeline.Themes;
 using Newtonsoft.Json;
 
 namespace Biblical.Timeline
@@ -25,13 +26,13 @@ namespace Biblical.Timeline
 			//
 			// Define page parameters.
 			//
-			using (PageDefinition pageDefinition = new(title, 44F, 34F, 300F, .45F * 300F, new DynamicTheme(), new()))
+			using (PageDefinition pageDefinition = new(title, 44F, 34F, 300F, .45F * 300F, new DefaultTheme(), new()))
 			{
 				//
 				// Define timeline parameters. Each line division is 100 years. The total
 				// width of the image is 4,600 years.
 				//
-				TimelineParameters timelineParameters = new(pageDefinition.DrawableArea, biblicalEvents.MaximumVerticalCount(), 100, 4600, 15);
+				TimelineParameters timelineParameters = new(pageDefinition.DrawableArea, biblicalEvents.MaximumVerticalCount(), 100, 4400, 15);
 
 				//
 				// Wrap the Biblical timeline events in Image Objects. Must use ToArray()
@@ -54,7 +55,17 @@ namespace Biblical.Timeline
 				}
 
 				//
-				// Draw the page background.
+				// Build the image.
+				//
+				await pageDefinition.BuildAsync(timelineParameters, imageObjects);
+
+				//
+				// Calculate the BC/AD markings.
+				//
+				await (new TimelineAnalyzer()).CalculateBc(biblicalEvents, pageDefinition.GridLines);
+
+				//
+				// Draw the image.
 				//
 				await pageDefinition.DrawAsync(timelineParameters, imageObjects);
 

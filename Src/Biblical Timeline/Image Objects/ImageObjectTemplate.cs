@@ -3,7 +3,7 @@ using Biblical.Timeline.Themes;
 
 namespace Biblical.Timeline
 {
-	internal abstract class ImageObjectTemplate(BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters)
+	public abstract class ImageObjectTemplate(BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters) : IDrawableObject
 	{
 		public BiblicalEvent BiblicalEvent { get; protected set; } = biblicalEvent;
 		protected PageDefinition PageDefinition { get; } = pageDefinition;
