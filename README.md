@@ -3,4 +3,4 @@ Creates a timeline image from scripture references by linking timeline event/ref
 
 Image size is 44 inch x 34 inch (designed for plotter).
 
-![](https://github.com/porrey/Biblical-Timeline/blob/5d6891b2b773d2e02fc18c06cddcd32bdbbf1671/Images/Biblical%20Timeline.png)
+![](https://raw.githubusercontent.com/porrey/Biblical-Timeline/refs/heads/main/Images/Biblical%20Timeline.png)
