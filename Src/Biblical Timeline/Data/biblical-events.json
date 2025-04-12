@@ -520,34 +520,8 @@
 		"TextAlign": "Right"
 	},
 	{
-		"ResetTop": true,
-		"Sequence": 42,
-		"Name": "Solomon Built the Temple",
-		"EventLength": 7,
-		"Predecessor": "Israel Exodus to Start of Temple Build",
-		"EventStart": 480,
-		"DisplayEventLength": true,
-		"Reference": "1 Kings 6:1",
-		"EntryType": "TimeSpan",
-		"Comments": null,
-		"TextAlign": "Right"
-	},
-	{
 		"ResetTop": false,
 		"Sequence": 43,
-		"Name": "Solomon's Reign",
-		"EventLength": 40,
-		"Predecessor": "Solomon Built the Temple",
-		"EventStart": -4,
-		"DisplayEventLength": true,
-		"Reference": "1 Kings 11:42",
-		"EntryType": "JudahKing",
-		"Comments": null,
-		"TextAlign": "Right"
-	},
-	{
-		"ResetTop": false,
-		"Sequence": 44,
 		"Name": "David's Reign",
 		"EventLength": 40,
 		"Predecessor": "Solomon's Reign",
@@ -559,8 +533,8 @@
 		"TextAlign": "Right"
 	},
 	{
-		"ResetTop": false,
-		"Sequence": 45,
+		"ResetTop": true,
+		"Sequence": 42,
 		"Name": "David",
 		"EventLength": 70,
 		"Predecessor": "David's Reign",
@@ -573,20 +547,33 @@
 	},
 	{
 		"ResetTop": false,
-		"Sequence": 46,
-		"Name": "Rehoboam",
-		"EventLength": 58,
-		"Predecessor": "Solomon's Reign",
-		"EventStart": -1,
+		"Sequence": 44,
+		"Name": "Solomon's Reign",
+		"EventLength": 40,
+		"Predecessor": "Solomon Built the Temple",
+		"EventStart": -4,
 		"DisplayEventLength": true,
-		"Reference": "1 Kings 14:21",
-		"EntryType": "Person",
+		"Reference": "1 Kings 11:42",
+		"EntryType": "JudahKing",
 		"Comments": null,
 		"TextAlign": "Right"
 	},
 	{
 		"ResetTop": false,
-		"Sequence": 47,
+		"Sequence": 45,
+		"Name": "Solomon Built the Temple",
+		"EventLength": 7,
+		"Predecessor": "Israel Exodus to Start of Temple Build",
+		"EventStart": 480,
+		"DisplayEventLength": true,
+		"Reference": "1 Kings 6:1",
+		"EntryType": "TimeSpan",
+		"Comments": null,
+		"TextAlign": "Right"
+	},
+	{
+		"ResetTop": false,
+		"Sequence": 46,
 		"Name": "Rehoboam/Judah",
 		"EventLength": 17,
 		"Predecessor": "Rehoboam",
@@ -594,6 +581,19 @@
 		"DisplayEventLength": true,
 		"Reference": "1 Kings 14:21",
 		"EntryType": "JudahKing",
+		"Comments": null,
+		"TextAlign": "Right"
+	},
+	{
+		"ResetTop": false,
+		"Sequence": 47,
+		"Name": "Rehoboam",
+		"EventLength": 58,
+		"Predecessor": "Solomon's Reign",
+		"EventStart": -1,
+		"DisplayEventLength": true,
+		"Reference": "1 Kings 14:21",
+		"EntryType": "Person",
 		"Comments": null,
 		"TextAlign": "Right"
 	},
@@ -1156,22 +1156,9 @@
 		"EntryType": "TimeSpan",
 		"Comments": null
 	},
-
 	{
 		"ResetTop": false,
 		"Sequence": 92,
-		"Name": "Death on the Cross",
-		"EventLength": 1,
-		"Predecessor": "69 Weeks",
-		"EventStart": 483,
-		"DisplayEventLength": false,
-		"Reference": "Daniel 9:25-27",
-		"EntryType": "TimeMarker",
-		"Comments": null
-	},
-	{
-		"ResetTop": true,
-		"Sequence": 93,
 		"Name": "The Birth of Jesus",
 		"EventLength": 1,
 		"Predecessor": "Death on the Cross",
@@ -1184,13 +1171,25 @@
 	},
 	{
 		"ResetTop": false,
-		"Sequence": 94,
-		"Name": "Start of Jesus's Ministry",
-		"EventLength": 1,
+		"Sequence": 93,
+		"Name": "Jesus' Ministry",
+		"EventLength": 3,
 		"Predecessor": "The Birth of Jesus",
 		"EventStart": 30,
 		"DisplayEventLength": false,
 		"Reference": "Luke 3:23",
+		"EntryType": "TimeSpan",
+		"Comments": null
+	},
+	{
+		"ResetTop": false,
+		"Sequence": 94,
+		"Name": "Death on the Cross",
+		"EventLength": 1,
+		"Predecessor": "69 Weeks",
+		"EventStart": 483,
+		"DisplayEventLength": false,
+		"Reference": "Daniel 9:25-27",
 		"EntryType": "TimeMarker",
 		"Comments": null
 	}

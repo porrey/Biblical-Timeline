@@ -1,58 +1,69 @@
 ﻿namespace Biblical.Timeline
 {
-	internal static class BiblicalEventDecorator
-	{
-		public static int MaximumVerticalCount(this IEnumerable<BiblicalEvent> items)
-		{
-			int returnValue = 0;
+    internal static class BiblicalEventDecorator
+    {
+        public static void Renumber(this IEnumerable<BiblicalEvent> items)
+        {
+            int number = 1;
+            int expectedNumber = 1;
 
-			int count = 0;
+            foreach (BiblicalEvent item in items)
+            {
+                item.Sequence = number++;
+                expectedNumber++;
+            }
+        }
 
-			foreach (BiblicalEvent item in items)
-			{
-				if (item.ResetTop)
-				{
-					if (count > returnValue)
-					{
-						returnValue = count;
-					}
+        public static int MaximumVerticalCount(this IEnumerable<BiblicalEvent> items)
+        {
+            int returnValue = 0;
 
-					count = 1;
-				}
-				else
-				{
-					count++;
-				}
-			}
+            int count = 0;
 
-			return returnValue;
-		}
+            foreach (BiblicalEvent item in items)
+            {
+                if (item.ResetTop)
+                {
+                    if (count > returnValue)
+                    {
+                        returnValue = count;
+                    }
 
-		public static ImageObjectTemplate ToImageObjectTemplate(this BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters)
-		{
-			ImageObjectTemplate returnValue = null;
+                    count = 1;
+                }
+                else
+                {
+                    count++;
+                }
+            }
 
-			switch (biblicalEvent.EntryType)
-			{
-				case EntryType.Person:
-					returnValue = new PersonImageObject(biblicalEvent, pageDefinition, parameters);
-					break;
-				case EntryType.TimeMarker:
-					returnValue = new TimeMarkerImageObject(biblicalEvent, pageDefinition, parameters);
-					break;
-				case EntryType.TimeSpan:
-					returnValue = new TimeSpanImageObject(biblicalEvent, pageDefinition, parameters);
-					break;
-				case EntryType.IsraelKing:
-					returnValue = new IsraelKingImageObject(biblicalEvent, pageDefinition, parameters);
-					break;
-				case EntryType.JudahKing:
-					returnValue = new JudahKingImageObject(biblicalEvent, pageDefinition, parameters);
-					break;
-			}
+            return returnValue;
+        }
 
-			return returnValue;
-		}
+        public static ImageObjectTemplate ToImageObjectTemplate(this BiblicalEvent biblicalEvent, PageDefinition pageDefinition, TimelineParameters parameters)
+        {
+            ImageObjectTemplate returnValue = null;
 
-	}
+            switch (biblicalEvent.EntryType)
+            {
+                case EntryType.Person:
+                    returnValue = new PersonImageObject(biblicalEvent, pageDefinition, parameters);
+                    break;
+                case EntryType.TimeMarker:
+                    returnValue = new TimeMarkerImageObject(biblicalEvent, pageDefinition, parameters);
+                    break;
+                case EntryType.TimeSpan:
+                    returnValue = new TimeSpanImageObject(biblicalEvent, pageDefinition, parameters);
+                    break;
+                case EntryType.IsraelKing:
+                    returnValue = new IsraelKingImageObject(biblicalEvent, pageDefinition, parameters);
+                    break;
+                case EntryType.JudahKing:
+                    returnValue = new JudahKingImageObject(biblicalEvent, pageDefinition, parameters);
+                    break;
+            }
+
+            return returnValue;
+        }
+    }
 }
