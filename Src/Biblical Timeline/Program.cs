@@ -25,9 +25,9 @@ namespace Biblical.Timeline
             IEnumerable<BiblicalEvent> biblicalEvents = JsonConvert.DeserializeObject<IEnumerable<BiblicalEvent>>(json, settings).Where(t => t.Show).OrderBy(t => t.Sequence);
             biblicalEvents.Renumber();
 
-            //string json2 = JsonConvert.SerializeObject(biblicalEvents, settings);
-            //string file2 = $"{Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}/Data/biblical-events-2.json";
-            //File.WriteAllText(file2, json2);
+            string json2 = JsonConvert.SerializeObject(biblicalEvents, settings);
+            string file2 = $"{Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}/Data/biblical-events-2.json";
+            File.WriteAllText(file2, json2);
 
             //
             // Set the title of the sheet and the output image file name.
